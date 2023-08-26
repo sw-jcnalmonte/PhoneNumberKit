@@ -373,6 +373,10 @@ open class PhoneNumberTextField: UITextField, UITextFieldDelegate {
             nav.pushViewController(vc, animated: true)
         } else {
             let nav = UINavigationController(rootViewController: vc)
+            if #available(iOS 13.0, *) {
+                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.black]
+                nav.navigationBar.standardAppearance.titleTextAttributes = attrs
+            }
             if modalPresentationStyle != nil {
                 nav.modalPresentationStyle = modalPresentationStyle!
             }
